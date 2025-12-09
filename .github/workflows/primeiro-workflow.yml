@@ -1,0 +1,23 @@
+name: Primeiro Workflow - CI Básico
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Exibir mensagem
+        run: echo "Pipeline executada com sucesso!"
+
+      - name: Listar arquivos do repositório
+        run: ls -la
